@@ -19,9 +19,9 @@ div.tooltip {
   display: flex;
   align-items: center;
   text-align: center;
-  width: 80px;
-  height: 40px;
-  padding: 2px;
+  min-width: 80px;
+  min-height: 40px;
+  padding: 5px;
   font: 12px sans-serif;
   background: lightsteelblue;
   border: 0px;
