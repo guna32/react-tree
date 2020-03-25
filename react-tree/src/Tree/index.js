@@ -1,8 +1,12 @@
 import React from "react";
-import { treeData } from "./data";
+// import { treeData } from "./data";
 import * as d3 from "d3";
 import "./index.css";
-const Tree = () => {
+const Tree = props => {
+  var treeData = props.data;
+  if (Object.keys(treeData).length < 1) {
+    return <div></div>;
+  }
   // Set the dimensions and margins of the diagram
   var margin = { top: 20, right: 90, bottom: 30, left: 90 },
     width = 960 - margin.left - margin.right,

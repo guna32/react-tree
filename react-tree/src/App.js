@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Tree from "./Tree";
+import { fetchTreeData } from "./utils";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [treeData, setTreeData] = useState({});
+  useEffect(() => {
+    const getData = async () => {
+      const data = await fetchTreeData();
+      setTreeData(data);
+    };
+    getData();
+  }, []);
   return (
     <div className="App">
-      <div>{count}</div>
-      <div
-        onClick={e => {
-          console.log("event", e);
-          setCount(count + 1);
-        }}
-        style={{ width: "1em", height: "1em" }}
-      ></div>
-      <Tree />
+      <Tree data={treeData} />
     </div>
   );
 }
